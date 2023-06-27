@@ -1,0 +1,71 @@
+.barchart-container {
+    background-color: #fff;
+    color: #404040;
+    box-shadow: #404040 3px 3px 1px 0px;
+    padding: 5px 20px;
+    margin-right: 50px;
+    border-radius: 20px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.bar {
+    width: 700px;
+}
+
+.label-dashboard {
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.topchart-container {
+    background-color: #fff;
+    color: #404040;
+    box-shadow: #404040 3px 3px 1px 0px;
+    /* width: 400px;
+    height: 200px; */
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.pie {
+    width: 350px;
+    height: 200;
+}
+
+.report-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 50px 0px
+}
+
+.report-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 0px 25px;
+    width: 300px;
+    padding: 10px;
+    color: #fff;
+    box-shadow: #404040 3px 3px 1px 0px;
+}
+
+.report-color1 {
+    background-color: #6A7FDB;
+}
+
+.report-color2 {
+    background-color: #E08DAC;
+}
+
+.report-color3 {
+    background-color: #57E2E5;
+}
+
+.icon-report {
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+}

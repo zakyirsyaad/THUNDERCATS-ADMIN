@@ -1,0 +1,81 @@
+/* 
+
+PUTIH #FFF
+URANIAN BLUE #B7DCF9
+ONYX #404040
+ANTI FLASH WHITE #F5F6F8
+ */
+
+header {
+    padding: 25px 50px 0px 15px;
+    background-color: #6A7FDB;
+    border-radius: 0px 50px 50px 0px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brand-name {
+    font-size: 30px;
+    font-family: 'Maven Pro', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    margin: 0px 0px 50px 0px
+}
+
+.user-login {
+    color: #fff;
+    background-color: #E08DAC;
+    box-shadow: #fff 2px 2px 3px 1px;
+    border-radius: 20px 0px;
+    padding: 15px 30px;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'poppins', sans-serif;
+    margin-bottom: 50px;
+}
+
+.icon-link {
+    font-size: 40px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.link {
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.navbar-logout {
+    margin-top: 100px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.icon-link-logout {
+    font-size: 30px;
+    color: #6A7FDB;
+    margin-right: 10px;
+}
+
+.link-logout {
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+    color: #6A7FDB;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 25px;
+}
