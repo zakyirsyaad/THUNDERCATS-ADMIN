@@ -1,12 +1,25 @@
+/* 
+
+PUTIH #FFF
+URANIAN BLUE #B7DCF9
+ONYX #404040
+ANTI FLASH WHITE #F5F6F8
+
+ */
+
 .sign-container {
-    margin: 10px;
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 95vh;
+    align-items: center;
+    background-color: #F5F6F8;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    align-items: baseline;
 }
 
 .icon-sign {
@@ -16,4 +29,77 @@ form {
 .welcome {
     font-size: 25px;
     font-weight: 700;
+    color: #3636368b;
+}
+
+span {
+    color: #000;
+}
+
+label {
+    align-self: baseline;
+    margin-bottom: 5px;
+}
+
+label::after {
+    content: "*";
+    color: red;
+}
+
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+}
+
+input {
+    width: 300px;
+    height: 35px;
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    transition: all .3s;
+    box-shadow: #363636 3px 3px 2px;
+}
+
+input:focus {
+    background-color: #363636;
+    color: #fff;
+    border-radius: 0px 15px;
+}
+
+input:hover {
+    background-color: #363636;
+    cursor: pointer;
+    border-radius: 0px
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background-color: #363636;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 5px;
+    box-shadow: #363636 3px 3px 5px;
+    transition: all .3s;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+button:hover {
+    background-color: #F5F6F8;
+    border-radius: 0px;
+    color: #363636;
+}
+
+.foto img {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
 }
