@@ -7,13 +7,12 @@ ANTI FLASH WHITE #F5F6F8
  */
 
 header {
-    padding: 25px 50px 0px 15px;
+    padding: 25px 50px 0px 30px;
     background-color: #6A7FDB;
     border-radius: 0px 50px 50px 0px;
     height: 90vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .brand-name {
@@ -26,14 +25,18 @@ header {
 
 .user-login {
     color: #fff;
-    background-color: #E08DAC;
+    background-color: #363636;
     box-shadow: #fff 2px 2px 3px 1px;
-    border-radius: 20px 0px;
+    border-radius: 5px;
     padding: 15px 30px;
-    font-weight: 600;
     text-align: center;
     font-family: 'poppins', sans-serif;
     margin-bottom: 50px;
+}
+
+.user-login span {
+    color: #6A7FDB;
+    font-weight: 700;
 }
 
 .icon-link {
@@ -47,6 +50,18 @@ header {
     font-weight: 600;
     text-decoration: none;
     font-family: 'Rubik', sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    transition: all .3s;
+}
+
+.link:hover {
+    background-color: #e08dab61;
+    border-radius: 0px 10px;
+    transform: scale(1.1);
 }
 
 .navbar {
@@ -59,7 +74,8 @@ header {
 .navbar-logout {
     margin-top: 100px;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 0px 0px 25px 0px;
+    transition: all .3s;
 }
 
 .icon-link-logout {
@@ -77,5 +93,10 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 5px 25px;
+    padding: 5px 10px;
+}
+
+.navbar-logout:hover {
+    background-color: #363636;
+    border-radius: 5px;
 }

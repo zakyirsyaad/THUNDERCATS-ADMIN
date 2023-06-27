@@ -8,9 +8,7 @@ export default function Sidebar() {
         color: "#FFF",
         background: "#E08DAC",
         borderRadius: "0px 10px",
-        padding: "10px 30px 10px 10px",
         fontWeight: "500",
-        margin: "0px 0px 0px 5px",
     };
 
     let inActiveStyle = {
@@ -22,43 +20,39 @@ export default function Sidebar() {
     return (
         <header>
             <p className='brand-name'>THUNDERCATS</p>
-            <p className="user-login">Hello, Jeky Kazuya</p>
+            <p className="user-login">Hello, <span>Jeky Kazuya</span></p>
             <nav>
                 <div className='navbar'>
-                    <span className="material-symbols-outlined icon-link">
-                        dashboard
-                    </span>
-                    <p>
-                        <NavLink className='link' to='/dashboard/chart' style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}>Dashboard
-                        </NavLink>
-                    </p>
+                    <NavLink className='link' to='/dashboard' style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}>
+                        <span className="material-symbols-outlined icon-link">
+                            dashboard
+                        </span>
+                        <p>Dashboard</p>
+                    </NavLink>
                 </div>
                 <div className='navbar'>
-                    <span class="material-symbols-outlined icon-link">
-                        receipt_long
-                    </span>
-                    <p>
-                        <NavLink className='link' to='/dashboard/Transaksi' style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}>Transaksi
-                        </NavLink>
-                    </p>
+                    <NavLink className='link' to='/Transaksi' style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}>
+                        <span class="material-symbols-outlined icon-link">
+                            receipt_long
+                        </span>
+                        Transaksi
+                    </NavLink>
                 </div>
                 <div className='navbar'>
-                    <span class="material-symbols-outlined icon-link">
-                        contact_page
-                    </span>
-                    <p>
-                        <NavLink className='link' to='/dashboard/user' style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}>User
-                        </NavLink>
-                    </p>
+                    <NavLink className='link' to='/user' style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}>
+                        <span class="material-symbols-outlined icon-link">
+                            contact_page
+                        </span>
+                        User
+                    </NavLink>
                 </div>
                 <div className='navbar'>
-                    <span className="material-symbols-outlined icon-link">
-                        inventory_2
-                    </span>
-                    <p>
-                        <NavLink className='link' to='/dashboard/inventaris' style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}>Inventaris
-                        </NavLink>
-                    </p>
+                    <NavLink className='link' to='/inventaris' style={({ isActive }) => (isActive ? activeStyle : inActiveStyle)}>
+                        <span className="material-symbols-outlined icon-link">
+                            inventory_2
+                        </span>
+                        Inventaris
+                    </NavLink>
                 </div>
             </nav>
             <div className='navbar-logout'>

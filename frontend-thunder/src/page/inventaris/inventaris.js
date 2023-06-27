@@ -12,6 +12,10 @@ function ProductList() {
             .catch(error => console.log(error));
     }, []);
 
+    useEffect(() => {
+        document.title = "Inventaris | THUNDERCATS"
+    })
+
     return (
         <div className='table-container'>
             <h1>Daftar Produk</h1>
