@@ -19,6 +19,10 @@ export default function User() {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        document.title = "User | THUNDERCATS"
+    })
+
     return (
         <div className='table-container'>
             <h1>Daftar User</h1>

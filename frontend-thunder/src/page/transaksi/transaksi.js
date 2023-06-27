@@ -12,6 +12,9 @@ function Transaksi() {
             .catch(error => console.log(error));
     }, []);
 
+    useEffect(() => {
+        document.title = "Transaksi | THUNDERCATS"
+    })
     return (
         <div className='table-container'>
             <h1>Daftar Transaksi</h1>

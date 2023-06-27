@@ -32,8 +32,9 @@ form {
     color: #3636368b;
 }
 
-span {
+.welcome span {
     color: #000;
+    font-size: 35px;
 }
 
 label {

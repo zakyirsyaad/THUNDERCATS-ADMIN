@@ -16,6 +16,10 @@ export default function SignIn() {
         });
     };
 
+    React.useEffect(() => {
+        document.title = "Sign In | THUNDERCATS"
+    })
+
     return (
         <section className='sign-container'>
             <div>
