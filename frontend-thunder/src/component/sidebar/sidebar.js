@@ -6,7 +6,7 @@ export default function Sidebar() {
     let activeStyle = {
         textDecoration: "none",
         color: "#FFF",
-        background: "#E08DAC",
+        background: "#6A7FDB",
         borderRadius: "0px 10px",
         fontWeight: "500",
     };
