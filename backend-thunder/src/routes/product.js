@@ -5,18 +5,18 @@ const router = express.Router();
 const productController = require('../controller/product');
 
 // READ - GET
-// router.get('/products', productController.getAllProduct);
+router.get('/product', productController.getProduct);
 
-// // READ - GET by ID
-// router.get('/products/:id', getProductById);
+// READ - GET by ID
+router.get('/product/:id', productController.getProductById);
 
 // CREATE - POST
 router.post('/product', productController.saveProduct);
 
 // UPDATE - PATCH
-// router.patch('/products/:id', updateProduct);
+// router.patch('/product/:id', productController.updateProduct);
 
-// // DELETE - DELETE
-// router.delete('/products/:id', deleteProduct);
+// DELETE - DELETE
+// router.delete('/products/:id', productController.deleteProduct);
 
 module.exports = router;
