@@ -16,7 +16,7 @@ app.use(FileUpload());
 app.use('/user', userRoutes);
 app.use(productRoutes);
 
-app.use(express.static('public/image'));
+app.use(express.static('public'));
 
 // app.use('/', (req, res) => {
 //     res.send("Selamat datang di BACKEND THUNDERCATS")
