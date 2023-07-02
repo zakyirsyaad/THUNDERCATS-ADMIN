@@ -16,8 +16,6 @@ app.use(FileUpload());
 
 app.use(pesanRoutes);
 // Routes
-app.use('/user', userRoutes);
-app.use('/pesan', pesanRoutes);
 app.use(userRoutes);
 app.use(productRoutes);
 app.use(adminRoutes);
