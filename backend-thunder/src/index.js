@@ -15,7 +15,6 @@ app.use(express.json());
 app.use(FileUpload());
 
 app.use(pesanRoutes);
-// Routes
 app.use(userRoutes);
 app.use(productRoutes);
 app.use(adminRoutes);
