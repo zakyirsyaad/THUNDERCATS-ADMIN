@@ -13,7 +13,14 @@ const app = express();
 app.use(middlewareLogRequest);
 app.use(express.json());
 app.use(FileUpload());
+// Pengaturan Header CORS
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Mengizinkan semua domain (harap disesuaikan dengan kebutuhan Anda)
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Mengizinkan metode HTTP yang diizinkan
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Mengizinkan header yang diizinkan
+    next();
+});
 app.use(pesanRoutes);
 app.use(userRoutes);
 app.use(productRoutes);
