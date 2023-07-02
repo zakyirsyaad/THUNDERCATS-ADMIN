@@ -1,6 +1,4 @@
 const express = require('express');
-
-
 const userRoutes = require('./routes/user');
 const productRoutes = require('./routes/product');
 const middlewareLogRequest = require('./middleware/log');
@@ -8,19 +6,26 @@ const FileUpload = require('express-fileupload');
 const upload = require('./middleware/multer');
 const app = express();
 
-
+// Middleware
 app.use(middlewareLogRequest);
 app.use(express.json());
 app.use(FileUpload());
 
+// Pengaturan Header CORS
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Mengizinkan semua domain (harap disesuaikan dengan kebutuhan Anda)
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Mengizinkan metode HTTP yang diizinkan
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Mengizinkan header yang diizinkan
+    next();
+});
+
+// Routes
 app.use('/user', userRoutes);
 app.use(productRoutes);
 
-app.use(express.static('public/image'));
+app.use(express.static('public'));
 
-// app.use('/', (req, res) => {
-//     res.send("Selamat datang di BACKEND THUNDERCATS")
-// })
+app.use(express.static('public/image'));
 
 app.post('/upload', upload.single('photo'), (req, res) => {
     res.json({
@@ -28,6 +33,6 @@ app.post('/upload', upload.single('photo'), (req, res) => {
     })
 })
 
-app.listen(3001, ()=>{
+app.listen(3001, () => {
     console.log("server berhasil running");
 })
