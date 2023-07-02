@@ -1,21 +1,29 @@
 const dbPool = require('../config/database');
+const { Sequelize } = require('sequelize');
 
-const getAllpesan = () => {
-    const SQLQuery = 'SELECT * FROM pesan';
+// const getAllProduct = () => {
+//     const SQLQuery = 'SELECT * FROM product'
 
+//     return dbPool.execute(SQLQuery);
+// }
 
-    return dbPool.execute(SQLQuery);
-}
+// const createNewProduct = (body) => {
+//     const SQLQuery = `INSERT INTO product ( nama_product, jenis_product, stok) VALUES ('${body.nama_product}','${body.jenis_product}','${body.stok}')`;
 
-const createNewpesan = (body) => {
-    const SQLQuery = `INSERT INTO pesan (nama, email, pesan) VALUES ('${body.nama}','${body.email}','${body.pesan}')`;
+//     return dbPool.execute(SQLQuery);
+// }
 
-    return dbPool.execute(SQLQuery);
-}
+const {DataTypes} = Sequelize;
 
+const Pesan = dbPool.define('pesan',{
+    nama: DataTypes.STRING,
+    email: DataTypes.STRING,
+    pesan: DataTypes.STRING
+},{
+    freezeTableName: true
+});
 
 
 module.exports = {
-    getAllpesan,
-    createNewpesan
+    Pesan
 }

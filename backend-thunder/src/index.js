@@ -14,7 +14,7 @@ app.use(middlewareLogRequest);
 app.use(express.json());
 app.use(FileUpload());
 
-app.use('/pesan', pesanRoutes);
+app.use(pesanRoutes);
 app.use(userRoutes);
 app.use(productRoutes);
 app.use(adminRoutes);

@@ -1,44 +1,34 @@
 const pesanModels = require('../models/pesan');
 
-const getAllpesan = async (req, res) => {
-    try {
-        const [data] = await pesanModels.getAllpesan();
+const getAllPesan = async (req, res) => {
+  try {
+    const pesan = await pesanModels.Pesan.findAll();
+    res.json(pesan);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
 
-        res.json({
-            message: 'Get ALL pesan success',
-            data: data
-        })
+const createNewPesan = async (req, res) => {
+    const nama = req.body.nama;
+    const email = req.body.email;
+    const pesan = req.body.pesan;
 
-    } catch (error) {
-        res.status(500).json({
-            message: 'Server ERROR',
-            serverMessage: error,
-        })
+  try {
+    const newPesan = await pesanModels.Pesan.create({ 
+        nama: nama,
+        email: email,
+        pesan: pesan });
+    res.status(201).json(newPesan);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
 
-    }
-
-
-}
-
-const createNewpesan = (req, res) => {
-    const { body } = req;
-    try {
-        pesanModels.createNewpesan(body);
-        res.json({
-            message: 'CREATE New pesan success',
-            data: body
-        })
-    } catch (error) {
-        res.status(500).json({
-            message: 'Server ERROR',
-            serverMessage: error,
-        })
-    }
-
-
-}
 
 module.exports = {
-    getAllpesan,
-    createNewpesan
-}
+    getAllPesan,
+    createNewPesan
+  };
