@@ -1,27 +1,34 @@
 const dbPool = require('../config/database');
+const { Sequelize } = require('sequelize');
 
-const getAlluser = () => {
-    const SQLQuery = 'SELECT * FROM user';
+// const getAllProduct = () => {
+//     const SQLQuery = 'SELECT * FROM product'
 
+//     return dbPool.execute(SQLQuery);
+// }
 
-    return dbPool.execute(SQLQuery);
-}
+// const createNewProduct = (body) => {
+//     const SQLQuery = `INSERT INTO product ( nama_product, jenis_product, stok) VALUES ('${body.nama_product}','${body.jenis_product}','${body.stok}')`;
 
-const createNewuser = (body) => {
-    const SQLQuery = `INSERT INTO user (username, email, password, nama_user, no_telp, alamat) VALUES ('${body.username}','${body.email}','${body.password}','${body.nama_user}','${body.no_telp}','${body.alamat}')`;
+//     return dbPool.execute(SQLQuery);
+// }
 
-    return dbPool.execute(SQLQuery);
-}
+const {DataTypes} = Sequelize;
 
-const loginUser = (body) => {
-    const { username, password } = body;
-    const SQLQuery = `SELECT * FROM user WHERE username = '${username}' AND password = '${password}'`;
-    return dbPool.execute(SQLQuery);
+const User = dbPool.define('user',{
+    nama: DataTypes.STRING,
+    negara: DataTypes.STRING,
+    kota: DataTypes.STRING,
+    kecamatan: DataTypes.STRING,
+    alamat: DataTypes.STRING,
+    kodepos: DataTypes.STRING,
+    no_telp: DataTypes.STRING,
+    email: DataTypes.STRING
+},{
+    freezeTableName: true
+});
 
-}
 
 module.exports = {
-    getAlluser,
-    createNewuser,
-    loginUser
+    User
 }
