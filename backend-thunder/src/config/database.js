@@ -11,7 +11,7 @@ const mysql = require('mysql2');
 
 const { Sequelize } = require('sequelize');
 
-const dbPool = new Sequelize('thundercat','root','',{
+const dbPool = new Sequelize('thundercat_db','root','',{
     host: 'localhost',
     dialect: "mysql"
 });
