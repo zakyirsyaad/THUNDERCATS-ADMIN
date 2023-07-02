@@ -1,6 +1,6 @@
 const express = require('express');
 
-
+const adminRoutes = require('./routes/admin');
 const userRoutes = require('./routes/user');
 const pesanRoutes = require('./routes/pesan');
 const productRoutes = require('./routes/product');
@@ -15,8 +15,9 @@ app.use(express.json());
 app.use(FileUpload());
 
 app.use('/pesan', pesanRoutes);
-app.use('/user', userRoutes);
+app.use(userRoutes);
 app.use(productRoutes);
+app.use(adminRoutes);
 
 app.use(express.static('public'));
 

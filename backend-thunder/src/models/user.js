@@ -29,11 +29,6 @@ const User = dbPool.define('user',{
 });
 
 
-
-(async()=>{
-    await dbPool.sync();
-})();
-
 module.exports = {
     User
 }
