@@ -11,10 +11,10 @@ const mysql = require('mysql2');
 
 const { Sequelize } = require('sequelize');
 
-const dbPool = new Sequelize('thundercat_db','root','',{
+const dbPool = new Sequelize('thundercat', 'root', '', {
     host: 'localhost',
     dialect: "mysql"
 });
 
- module.exports = dbPool;
+module.exports = dbPool;
 // export default dbPool;
