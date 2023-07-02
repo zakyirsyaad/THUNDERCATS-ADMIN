@@ -14,6 +14,7 @@ app.use(middlewareLogRequest);
 app.use(express.json());
 app.use(FileUpload());
 
+app.use(pesanRoutes);
 // Pengaturan Header CORS
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*'); // Mengizinkan semua domain (harap disesuaikan dengan kebutuhan Anda)
