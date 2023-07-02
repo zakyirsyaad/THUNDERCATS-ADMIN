@@ -8,10 +8,11 @@ const getAlluser = () => {
 }
 
 const createNewuser = (body) => {
-    const SQLQuery = `INSERT INTO user (username, email, password, nama_user, no_telp, alamat) VALUES ('${body.username}','${body.email}','${body.password}','${body.nama_user}','${body.no_telp}','${body.alamat}')`;
-
-    return dbPool.execute(SQLQuery);
-}
+    const SQLQuery = 'INSERT INTO user (nama, negara, kota, kecamatan, alamat, kodepos, no_telp, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    const values = [body.nama, body.negara, body.kota, body.kecamatan, body.alamat, body.kodepos, body.no_telp, body.email];
+  
+    return dbPool.execute(SQLQuery, values);
+  }
 
 const loginUser = (body) => {
     const { username, password } = body;

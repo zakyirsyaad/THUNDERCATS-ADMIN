@@ -1,6 +1,6 @@
 const express = require('express');
 
-
+const adminRoutes = require('./routes/admin');
 const userRoutes = require('./routes/user');
 const productRoutes = require('./routes/product');
 const middlewareLogRequest = require('./middleware/log');
@@ -15,6 +15,7 @@ app.use(FileUpload());
 
 app.use('/user', userRoutes);
 app.use(productRoutes);
+app.use(adminRoutes);
 
 app.use(express.static('public'));
 
