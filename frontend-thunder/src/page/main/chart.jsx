@@ -12,8 +12,8 @@ export default function Chart() {
         <div className="chart-container">
             <Report />
             <div className="main-chart">
-                <Barchart />
-                <TopSelling />
+                {/* <Barchart />
+                <TopSelling /> */}
             </div>
         </div>
     )

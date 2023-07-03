@@ -1,21 +1,32 @@
-import * as React from 'react';
-import { useState } from 'react';
-import './signin.css'
-import background from '../../assets/signbg.jpg'
+import React, { useState } from 'react';
+import axios from 'axios';
+import './signin.css';
+import background from '../../assets/signbg.jpg';
+
 
 export default function SignIn() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
-    };
 
+        try {
+            const response = await axios.post('http://localhost:3001/admin/login', {
+                email,
+                password
+            });
+
+            // Proses respons dari server
+            console.log(response.data);
+            window.location.href = '/dashboard';
+        } catch (error) {
+            // Tangani error
+            setError('Login failed. Please try again.');
+            console.log(error);
+        }
+    };
     React.useEffect(() => {
         document.title = "Sign In | THUNDERCATS"
     })

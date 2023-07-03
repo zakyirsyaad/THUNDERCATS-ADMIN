@@ -10,7 +10,7 @@ export default function User() {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:3001/user');
-                setUser(response.data.data);
+                setUser(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -30,20 +30,22 @@ export default function User() {
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell>Username</TableCell>
+                            <TableCell>ID User</TableCell>
                             <TableCell>Email</TableCell>
                             <TableCell>Nama</TableCell>
                             <TableCell>No. Telepon</TableCell>
+                            <TableCell>Kodepos</TableCell>
                             <TableCell>Alamat</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {user.map((user) => (
                             <TableRow key={user.username}>
-                                <TableCell>{user.username}</TableCell>
+                                <TableCell>{user.id}</TableCell>
                                 <TableCell>{user.email}</TableCell>
-                                <TableCell>{user.nama_user}</TableCell>
+                                <TableCell>{user.nama}</TableCell>
                                 <TableCell>{user.no_telp}</TableCell>
+                                <TableCell>{user.kodepos}</TableCell>
                                 <TableCell>{user.alamat}</TableCell>
                             </TableRow>
                         ))}

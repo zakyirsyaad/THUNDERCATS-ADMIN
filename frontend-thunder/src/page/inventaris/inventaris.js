@@ -8,7 +8,7 @@ function ProductList() {
     useEffect(() => {
         fetch('http://localhost:3001/product?') // Ganti URL dengan URL yang sesuai
             .then(response => response.json())
-            .then(data => setProducts(data.data))
+            .then(data => setProducts(data))
             .catch(error => console.log(error));
     }, []);
 
@@ -32,7 +32,7 @@ function ProductList() {
                     <TableBody>
                         {products.map(product => (
                             <TableRow key={product.id_product}>
-                                <TableCell>{product.id_product}</TableCell>
+                                <TableCell>{product.id}</TableCell>
                                 <TableCell>{product.nama_product}</TableCell>
                                 <TableCell>{product.jenis_product}</TableCell>
                                 <TableCell>{product.stok !== null ? product.stok : 'Tidak tersedia'}</TableCell>
