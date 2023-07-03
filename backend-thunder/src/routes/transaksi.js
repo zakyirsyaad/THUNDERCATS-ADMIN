@@ -1,9 +1,19 @@
+
 const express = require('express');
-
 const router = express.Router();
-const transaksiController = require("../controller/transaksi");
+const Transaksi = require('../models/transaksi');
 
-//get all product
-router.get('/', transaksiController.getAlltransaksi);
+// Route untuk mendapatkan data transaksi
+router.get('/transaksi', async (req, res) => {
+  try {
+    const transaksi = await Transaksi.findAll({
+      attributes: ['nama_product', 'jenis_product', 'jumlah_produk', 'harga', 'total_harga', 'status'],
+    });
+    res.json(transaksi);
+  } catch (error) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 
 module.exports = router;

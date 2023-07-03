@@ -4,6 +4,7 @@ const adminRoutes = require('./routes/admin');
 const userRoutes = require('./routes/user');
 const pesanRoutes = require('./routes/pesan');
 const productRoutes = require('./routes/product');
+const transaksiRoutes = require('./routes/transaksi');
 const middlewareLogRequest = require('./middleware/log');
 const FileUpload = require('express-fileupload');
 const upload = require('./middleware/multer');
@@ -25,6 +26,7 @@ app.use(pesanRoutes);
 app.use(userRoutes);
 app.use(productRoutes);
 app.use(adminRoutes);
+app.use(transaksiRoutes);
 
 app.use(express.static('public'));
 

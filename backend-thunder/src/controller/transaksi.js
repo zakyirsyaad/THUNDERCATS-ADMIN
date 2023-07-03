@@ -1,24 +1,19 @@
-const transaksiModels = require('../models/transaksi.js');
-const getAlltransaksi = async (req, res) => {
-    try {
-        const [data] = await transaksiModels.getAlltransaksi();
 
-        res.json({
-            message: 'Get ALL transaksi succes',
-            data: data
-        })
+const Transaksi = require('../models/transaksi');
 
-    } catch (error) {
-        res.status(500).json({
-            message: 'Server ERROR',
-            serverMessage: error,
-        })
-
-    }
+const getTransaksi = async () => {
+  try {
+    const transaksi = await Transaksi.findAll({
+      attributes: ['nama_product', 'jenis_product', 'jumlah_produk', 'harga', 'total_harga', 'status'],
+    });
+    console.log(transaksi);
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 
-}
 
 module.exports = {
-    getAlltransaksi
+    getTransaksi
 }
