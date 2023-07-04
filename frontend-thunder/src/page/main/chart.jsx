@@ -1,8 +1,9 @@
 import Barchart from "./chart/barchart/barchart";
 import '../../App.css'
-import TopSelling from "./chart/topselling/topselling";
 import Report from "./chart/report/report";
 import { useEffect } from "react";
+import TopSelling from "./chart/topselling/topselling";
+import Pesan from "../pesan/pesan";
 
 export default function Chart() {
     useEffect(() => {
@@ -12,8 +13,9 @@ export default function Chart() {
         <div className="chart-container">
             <Report />
             <div className="main-chart">
-                {/* <Barchart />
-                <TopSelling /> */}
+                <Barchart />
+                <TopSelling />
+                <Pesan />
             </div>
         </div>
     )

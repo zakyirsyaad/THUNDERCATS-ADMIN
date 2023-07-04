@@ -1,32 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import { Chart, registerables } from 'chart.js';
 import axios from 'axios';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+Chart.register(...registerables);
 
 export default function TopSelling() {
-    const [product, setProduct] = useState([])
+    const [product, setProduct] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/product')
-                setProduct(response.data.data)
+                const response = await axios.get('http://localhost:3001/transaksi');
+                setProduct(response.data);
             } catch (error) {
-                console.error('Error fetching data:', error)
+                console.error('Error fetching data:', error);
             }
-        }
+        };
 
-        fetchData()
-    }, [])
+        fetchData();
+    }, []);
+
+    // Calculate jenisProdukSet, jumlahProduk, and transaksi
+    const jenisProdukSet = new Set(product.map((item) => item.jenis_product));
+    const jumlahProduk = [...jenisProdukSet].map((jenis) => {
+        const jumlah = product.reduce(
+            (total, item) => (item.jenis_product === jenis ? total + item.jumlah_produk : total),
+            0
+        );
+        return jumlah;
+    });
+    const transaksi = product.length;
 
     const data = {
-        labels: product?.map(item => item.nama_product),
+        labels: [...jenisProdukSet],
         datasets: [
             {
-                label: 'Top Selling Products',
-                data: product?.map(item => item.stok),
+                label: `Total ${transaksi} transaksi`,
+                data: jumlahProduk,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -43,15 +54,23 @@ export default function TopSelling() {
                     'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)',
                 ],
-                borderWidth: 1,
+                borderWidth: 2,
             },
         ],
     };
 
     return (
         <div className='topchart-container'>
-            <p className='label-dashboard'>TopSelling Product</p>
+            <p className='label-dashboard'>Top Variant Product</p>
             <Pie data={data} className='pie' />
+            <div className="data-count">
+                {Array.from(jenisProdukSet).map((jenis, index) => (
+                    <p key={index}>
+                        {jenis}: {jumlahProduk[index]} Barang
+                    </p>
+                ))}
+            </div>
         </div>
-    )
+    );
+
 }

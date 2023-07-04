@@ -25,6 +25,19 @@ export default function Report() {
         fetchData();
     }, []);
 
+    const getTotalQuantity = () => {
+        let total = 0;
+
+        // Menghitung jumlah produk jika transaksi sudah tersedia
+        if (transaksi) {
+            transaksi.forEach((item) => {
+                total += item.jumlah_produk;
+            });
+        }
+
+        return total;
+    };
+
 
     return (
         <div className="report-container">
@@ -34,7 +47,7 @@ export default function Report() {
                 </span>
                 <div>
                     <h3>Jumlah Pembeli</h3>
-                    {user ? <p>Total: {user.length}</p> : <p>Data Not Found</p>}
+                    {user ? <p>Total: {user.length} Pembeli</p> : <p>Data Not Found</p>}
                 </div>
             </div>
 
@@ -43,8 +56,8 @@ export default function Report() {
                     location_away
                 </span>
                 <div>
-                    <h3>Transaksi Bulan Ini</h3>
-                    {transaksi ? <p>Total: {transaksi.length}</p> : <p>Data Not Found</p>}
+                    <h3>Jumlah Transaksi</h3>
+                    {transaksi ? <p>Total: {transaksi.length} Transaksi</p> : <p>Data Not Found</p>}
                 </div>
             </div>
 
@@ -53,8 +66,8 @@ export default function Report() {
                     inventory_2
                 </span>
                 <div>
-                    <h3>Produk Terjual</h3>
-                    {products ? <p>Total: {products.length}</p> : <p>Data Not Found</p>}
+                    <h3>Jumlah Produk Terjual</h3>
+                    {products ? <p>Total:  {getTotalQuantity()} barang</p> : <p>Data Not Found</p>}
                 </div>
             </div>
         </div>

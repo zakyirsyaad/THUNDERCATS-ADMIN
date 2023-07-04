@@ -10,9 +10,9 @@ header {
     padding: 25px 50px 0px 30px;
     background-color: #363636;
     border-radius: 0px 50px;
-    height: 90vh;
     display: flex;
     flex-direction: column;
+    height: 125vh;
 }
 
 .brand-name {

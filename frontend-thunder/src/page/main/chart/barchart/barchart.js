@@ -1,12 +1,10 @@
-import './barchart.css'
-import { CategoryScale, Chart as chartJs, LinearScale, LineElement, PointElement, ArcElement } from "chart.js"
-import { Line } from 'react-chartjs-2'
-import { useEffect, useState } from "react"
-import axios from 'axios'
+import './barchart.css';
+import { Chart, registerables } from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-chartJs.register(
-    LineElement, LinearScale, CategoryScale, PointElement, ArcElement
-)
+Chart.register(...registerables);
 
 export default function Barchart() {
     const [transaksi, settransaksi] = useState([])
@@ -14,8 +12,8 @@ export default function Barchart() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/product')
-                settransaksi(response.data.data)
+                const response = await axios.get('http://localhost:3001/transaksi')
+                settransaksi(response.data)
             } catch (error) {
                 console.error('Error fetching data:', error)
             }
@@ -24,12 +22,21 @@ export default function Barchart() {
         fetchData()
     }, [])
 
+    const jenisProdukSet = new Set(transaksi.map((item) => item.nama_product));
+    const jumlahProduk = [...jenisProdukSet].map((jenis) => {
+        const jumlah = transaksi.reduce(
+            (total, item) => (item.nama_product === jenis ? total + item.jumlah_produk : total),
+            0
+        );
+        return jumlah;
+    });
+
     const data = {
-        labels: transaksi?.map(x => x.id_product),
+        labels: [...jenisProdukSet],
         datasets: [
             {
-                label: `Total ${transaksi?.length} penjualan`,
-                data: transaksi?.map(x => x.id_transaksi),
+                label: `Total ${transaksi.length} transaksi`,
+                data: jumlahProduk,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -46,15 +53,16 @@ export default function Barchart() {
                     'rgba(153, 102, 255, 1)',
                     'rgba(255, 159, 64, 1)',
                 ],
-                borderWidth: 2,
+                borderWidth: 1,
             },
         ],
-    }
+    };
+
 
     return (
         <section className="barchart-container">
-            <p className='label-dashboard'>Laporan Penjualan</p>
-            <Line data={data} className='bar' />
+            <p className='label-dashboard'>Product Terlaris</p>
+            <Bar data={data} className='bar' />
         </section>
     )
 }

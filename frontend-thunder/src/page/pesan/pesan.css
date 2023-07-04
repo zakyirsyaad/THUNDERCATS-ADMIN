@@ -1,0 +1,10 @@
+.table-pesan {
+    width: 1000px;
+    background-color: #fff;
+    color: #404040;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 25px 50px;
+    margin-top: 50px;
+    border-radius: 20px;
+    font-family: 'Rubik', sans-serif;
+}

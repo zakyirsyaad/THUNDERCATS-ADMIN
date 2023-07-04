@@ -8,7 +8,7 @@ function Transaksi() {
     useEffect(() => {
         fetch('http://localhost:3001/transaksi') // Ganti URL dengan URL yang sesuai
             .then(response => response.json())
-            .then(data => setTransaksi(data.data))
+            .then(data => setTransaksi(data))
             .catch(error => console.log(error));
     }, []);
 
@@ -22,16 +22,22 @@ function Transaksi() {
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell>ID Transaksi</TableCell>
-                            <TableCell>Tanggal Transaksi</TableCell>
+                            <TableCell>Nama Product</TableCell>
+                            <TableCell>jenis product</TableCell>
+                            <TableCell>Jumlah Product</TableCell>
+                            <TableCell>Harga</TableCell>
+                            <TableCell>Total Harga</TableCell>
                             <TableCell>Status</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {transaksi.map(transaksi => (
-                            <TableRow key={transaksi.id_transaksi}>
-                                <TableCell>{transaksi.id_transaksi}</TableCell>
-                                <TableCell>{transaksi.tgl_transaksi ? transaksi.tgl_transaksi : 'Data tidak tersedia'}</TableCell>
+                            <TableRow key={transaksi.nama_product}>
+                                <TableCell>{transaksi.nama_product}</TableCell>
+                                <TableCell>{transaksi.jenis_product}</TableCell>
+                                <TableCell>{transaksi.jumlah_produk}</TableCell>
+                                <TableCell>Rp. {transaksi.harga.toLocaleString()}</TableCell>
+                                <TableCell>Rp. {transaksi.total_harga.toLocaleString()}</TableCell>
                                 <TableCell>{transaksi.status !== null ? transaksi.status : 'Tidak tersedia'}</TableCell>
                             </TableRow>
                         ))}
